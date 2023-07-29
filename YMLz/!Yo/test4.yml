@@ -1,0 +1,36 @@
+#- name: Welcome to Ansible!
+#  hosts: localhost
+#  tasks:
+#    - name: Welcome to Ansible! -- Hack The Planet!
+#      debug: msg="This is what we need!"
+
+- name: Show Ansible version
+  hosts: localhost
+  vars:
+    vRandomText: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+    vRandomText2_25: "{{ lookup('password', '/dev/null length=25 chars=ascii_letters') }}"
+    vRandomText2_50: "{{ lookup('password', '/dev/null length=50 chars=ascii_letters') }}"
+  tasks:
+    - set_fact:
+        fFileName: "TEMP{{ vRandomText }}.txt"
+        fRandomText25: "{{ vRandomText2_25 }}"
+        fRandomText50: "{{ vRandomText2_50 }}"
+    - name: STEP 1
+      command: "/usr/bin/time --output={{ fFileName }} -v ansible-playbook --version"
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
+    
+    - name: STEP 1 - Show command execution result
+      shell: "cat {{ fFileName }}"
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
+
+    - name: STEP 1 DESTRUCTOR :)
+      file: 
+        path: "{{ fFileName }}"
+        state: absent
+        
+    - name: My passwords
+    - debug: msg="{{ fRandomText25.stdout_lines }}"
+#    - debug: msg="{{ fRandomText50.stdout_lines }}"
+

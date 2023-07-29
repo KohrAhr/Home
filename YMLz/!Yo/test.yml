@@ -1,0 +1,27 @@
+- name: Welcome to Ansible!
+  hosts: localhost
+  tasks:
+    - name: Hack The Planet!
+      debug: msg="This is what we need!"
+
+- name: Show Ansible version
+  hosts: localhost
+  tasks:
+    - name: STEP 100500
+      shell: free > free.txt
+    - name: STEP 2
+      shell: ls -ali > dir.txt
+    - name: STEP 3
+      shell: ls -ali > dir2.txt
+    - name: STEP 100500
+      shell: free > free.txt
+    - name: STEP 2
+      shell: ls -ali > dir.txt
+    - name: STEP 3
+      shell: ls -ali > dir2.txt
+    - name: STEP 100500
+      shell: free > free.txt
+    - name: STEP 2
+      shell: ls -ali > dir.txt
+    - name: STEP 3
+      shell: ls -ali > dir2.txt

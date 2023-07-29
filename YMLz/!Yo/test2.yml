@@ -1,0 +1,17 @@
+- name: Welcome to Ansible!
+  hosts: localhost
+  tasks:
+    - name: Welcome to Ansible! -- Hack The Planet!
+      debug: msg="This is what we need!"
+
+- name: Show Ansible version
+  hosts: localhost
+  tasks:
+    - name: STEP 1
+      command: ansible-playbook --version
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
+    - name: STEP 2
+      shell: ls -ali
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"

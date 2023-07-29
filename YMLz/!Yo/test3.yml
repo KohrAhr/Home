@@ -1,0 +1,41 @@
+#- name: Welcome to Ansible!
+#  hosts: localhost
+#  tasks:
+#    - name: Welcome to Ansible! -- Hack The Planet!
+#      debug: msg="This is what we need!"
+
+- name: Show Ansible version
+  hosts: localhost
+  tasks:
+    - name: STEP 1 with TIME
+      command: "/usr/bin/time --output=tempout.txt -v ansible-playbook --version"
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
+    
+#   - name: STEP 1 with TIME
+#     command: ansible-playbook --version
+#     register: sOutput
+#   - debug: msg="{{ sOutput.stdout_lines }}"
+    
+    - name: STEP 1 - Show TIME result
+      shell: "cat tempout.txt"
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
+
+#    - name: STEP 2 with TIME
+#      shell: "/usr/bin/time -v ls -ali > tempout.txt"
+#      register: sOutput
+#    - debug: msg="{{ sOutput.stdout_lines }}"
+#    - name: STEP 3
+#      shell: "/usr/bin/time -v"
+#      register: sOutput
+#    - debug: msg="{{ sOutput.stdout_lines }}"
+    - name: STEP 4
+      shell: "/usr/bin/time --output=tempout.txt -v ls -ali"
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
+
+    - name: STEP 4 - Show TIME result
+      shell: "cat tempout.txt"
+      register: sOutput
+    - debug: msg="{{ sOutput.stdout_lines }}"
