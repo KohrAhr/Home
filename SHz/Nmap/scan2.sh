@@ -1,0 +1,1 @@
+sudo nmap -sV --version-all 192.168.0.1
