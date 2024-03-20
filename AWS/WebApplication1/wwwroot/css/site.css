@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar-brand {
+    text-align: center;
+    background-color: antiquewhite;
+    min-width: 240px;
+}

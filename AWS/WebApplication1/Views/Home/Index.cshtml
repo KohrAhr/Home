@@ -8,7 +8,7 @@
 
 <hr />
 
-<ul>
+<ul style="text-align: left">
         <li>Visual Studio 2022</li>
         <li>.NET 6.0</li>
         <li>Project template: ASP.NET Core Web API</li>
@@ -16,24 +16,37 @@
         <li>Platform: .NET Core running on 64bit Amazon Linux 2/2.6.5</li>
 </ul>
 
+<hr />
+
 <h3>Environment variables</h3>
 
-@{
-    string? environmetVar = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-    string? environmetVar1 = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
-        string? environmetVar2 = Environment.GetEnvironmentVariable("PATH");
-        string? environmetVar3 = Environment.GetEnvironmentVariable("AWS_PROFILE");
-    }
+    <div style="text-align: left">
+        @{
+            DateTime dateTime = DateTime.Now;
+        }
 
-@{
-    DateTime dateTime = DateTime.Now;
-}
+        @{
+            var environmentVariables = Environment.GetEnvironmentVariables();
 
-    <p>ASPNETCORE_ENVIRONMENT: @environmetVar</p>
-    <p>DOTNET_ENVIRONMENT: @environmetVar1</p>
-    <p>AWS_PROFILE: @environmetVar3</p>
-    <p>PATH: @environmetVar2</p>
+            string[] vars = 
+            { 
+                "ASPNETCORE_ENVIRONMENT", "DOTNET_ENVIRONMENT",
+                "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_DEFAULT_REGION", "AWS_SESSION_TOKEN", "AWS_PROFILE",
+                "AWS_CONFIG_FILE", "AWS_SHARED_CREDENTIALS_FILE", "AWS_CA_BUNDLE"
+            };
+        }
+    
+        @foreach (string var in vars)
+        {
+                <p><b>@var:</b><br/> @Common.ResolveEnvironmentVariable(var)</p>
+            }
 
-    <p>Current Date: @dateTime.ToString("YYYY-MM-DD")</p>
+        @foreach (string key in environmentVariables.Keys)
+        {
+            <p><b>@key:</b><br/> @environmentVariables[key]</p>
+        }
 
+        <hr />
+        <p>Current Date: @dateTime.ToString("yyyy-MM-dd")</p>
+    </div>
 </div>

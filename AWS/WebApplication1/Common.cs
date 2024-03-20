@@ -4,6 +4,11 @@ namespace WebApplication1
 {
     public static class Common
     {
+        public static string? ResolveEnvironmentVariable(string name)
+        {
+            return Environment.GetEnvironmentVariable(name);
+        }
+
         public static string ResolveIPAddress(HttpContext context)
         {
             return context?.Connection?.RemoteIpAddress?.ToString();
