@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<hr />
+
+<ul>
+        <li>Visual Studio 2022</li>
+        <li>.NET 6.0</li>
+        <li>Project template: ASP.NET Core Web API</li>
+        <li>AWS Elastic Beanstalk (LEGACY)</li>
+        <li>Platform: .NET Core running on 64bit Amazon Linux 2/2.6.5</li>
+</ul>
+
+<h3>Environment variables</h3>
+
+@{
+    string? environmetVar = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+    string? environmetVar1 = Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT");
+        string? environmetVar2 = Environment.GetEnvironmentVariable("PATH");
+        string? environmetVar3 = Environment.GetEnvironmentVariable("AWS_PROFILE");
+    }
+
+@{
+    DateTime dateTime = DateTime.Now;
+}
+
+    <p>ASPNETCORE_ENVIRONMENT: @environmetVar</p>
+    <p>DOTNET_ENVIRONMENT: @environmetVar1</p>
+    <p>AWS_PROFILE: @environmetVar3</p>
+    <p>PATH: @environmetVar2</p>
+
+    <p>Current Date: @dateTime.ToString("YYYY-MM-DD")</p>
+
+</div>

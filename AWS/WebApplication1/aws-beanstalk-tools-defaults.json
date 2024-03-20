@@ -1,0 +1,20 @@
+
+{
+    "region" : "eu-north-1",
+    "configuration" : "Debug",
+    "framework"     : "net6.0",
+    "self-contained" : false,
+    "application"    : "WebApplication100500",
+    "environment"    : "WebApplication100500-dev",
+    "enable-xray"    : true,
+    "enhanced-health-type" : "basic",
+    "additional-options"   : "",
+    "solution-stack"       : "64bit Amazon Linux 2 v2.6.5 running .NET Core",
+    "environment-type"     : "SingleInstance",
+    "cname"                : "webapplication100500-dev",
+    "instance-type"        : "c5.large",
+    "key-pair"             : "",
+    "instance-profile"     : "aws-elasticbeanstalk-ec2-role",
+    "service-role"         : "aws-elasticbeanstalk-service-role",
+    "proxy-server"         : "nginx"
+}
