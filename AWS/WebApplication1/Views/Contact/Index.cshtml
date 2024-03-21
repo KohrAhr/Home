@@ -1,8 +1,50 @@
-﻿@{
+﻿@model ContactFormModel
+@{
     ViewData["Title"] = "Contact";
 }
 
 <h1>Contact</h1>
 
-<form><input type=button>
-    </form>
+<form method="post" action="/Contact">
+    <div class="row">
+        <div class="col-md-9">
+            <label asp-for="Name">Name:</label>
+        </div>
+        <div class="col-md-15">
+            <input asp-for="Name" maxlength="50" />
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <label asp-for="Email">Email:</label>
+        </div>
+        <div class="col-md-15">
+            <input asp-for="Email" maxlength="50" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <label asp-for="Phone">Phone:</label>
+        </div>
+        <div class="col-md-15">
+            <input asp-for="Phone" maxlength="15" />
+            <span asp-validation-for="Phone"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <label asp-for="Comments">Comment:</label>
+        </div>
+        <div class="col-md-15">
+            <textarea asp-for="Comments" maxlength="500"></textarea>
+            <span asp-validation-for="Comments"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-15">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>

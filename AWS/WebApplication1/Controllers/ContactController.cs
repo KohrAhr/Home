@@ -26,9 +26,19 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Index([Bind("Name,Email,Phone,Comments")] ContactFormModel model)
+        {
+            model.IP = Common.ResolveIPAddress(HttpContext);
+
+            await _ContactQueueService.AddAsync(model, _configuration["SendMailQueueUrl"]);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> PostAsync([Bind("Name,Email,Phone,Comments")] ContactFormModel model)
         {
-            model.IP = "127.0.0.1";
+            model.IP = Common.ResolveIPAddress(HttpContext);
 
             await _ContactQueueService.AddAsync(model, _configuration["SendMailQueueUrl"]);
 
