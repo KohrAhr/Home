@@ -3,7 +3,14 @@
     ViewData["Title"] = "Contact";
 }
 
-<h1>Contact</h1>
+<h3>AWS SQS -- SendMessageAsync demo</h3>
+
+<h1>Contact Us</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <p>@ViewBag.Message</p>
+}
 
 <form method="post" action="/Contact">
     <div class="row">

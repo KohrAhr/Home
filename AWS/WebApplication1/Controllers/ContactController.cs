@@ -20,8 +20,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string message)
         {
+            ViewBag.Message = message;
+
             return View();
         }
 
@@ -32,17 +34,17 @@ namespace WebApplication1.Controllers
 
             await _ContactQueueService.AddAsync(model, _configuration["SendMailQueueUrl"]);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { message = "Message has been added to AWS SQS!" });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostAsync([Bind("Name,Email,Phone,Comments")] ContactFormModel model)
-        {
-            model.IP = Common.ResolveIPAddress(HttpContext);
+        //[HttpPost]
+        //public async Task<IActionResult> PostAsync([Bind("Name,Email,Phone,Comments")] ContactFormModel model)
+        //{
+        //    model.IP = Common.ResolveIPAddress(HttpContext);
 
-            await _ContactQueueService.AddAsync(model, _configuration["SendMailQueueUrl"]);
+        //    await _ContactQueueService.AddAsync(model, _configuration["SendMailQueueUrl"]);
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
     }
 }

@@ -1,14 +1,14 @@
 
 {
     "region" : "eu-north-1",
-    "configuration" : "Release",
+    "configuration" : "Debug",
     "framework"     : "net6.0",
     "self-contained" : false,
     "application"    : "WebApplication100500",
-    "environment"    : "WebApplication100500-prod",
-    "enable-xray"    : false,
+    "environment"    : "WebApplication100500-dev",
+    "enable-xray"    : true,
     "enhanced-health-type" : "basic",
-    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-033fa48e00823064f\";\"aws:ec2:vpc,Subnets\"=\"subnet-02816ec6f7df2fbb5\"",
+    "additional-options"   : "",
     "solution-stack"       : "64bit Amazon Linux 2 v2.6.5 running .NET Core",
     "environment-type"     : "SingleInstance",
     "cname"                : "webapplication100500-prod",
