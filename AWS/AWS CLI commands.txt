@@ -1,3 +1,17 @@
 ; Create SQS
 
 aws sqs create-queue --queue-name MySQS --region en-north-1 --attributes VisibilityTimeout=60,MessageRetentionPeriod=86400
+
+; SecretsManager
+
+aws secretsmanager list-secrets --max-results 100
+
+; ElasticBeanstalk
+
+aws elasticbeanstalk describe-applications
+
+aws elasticbeanstalk describe-environments --application-name WebApplication100500
+
+aws elasticbeanstalk terminate-environment --environment-id e-cbdyj2n6r3
+
+
