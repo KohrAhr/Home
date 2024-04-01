@@ -1,12 +1,18 @@
+;----------------------
 ; Create SQS
+;----------------------
 
 aws sqs create-queue --queue-name MySQS --region en-north-1 --attributes VisibilityTimeout=60,MessageRetentionPeriod=86400
 
+;----------------------
 ; SecretsManager
+;----------------------
 
 aws secretsmanager list-secrets --max-results 100
 
+;----------------------
 ; ElasticBeanstalk
+;----------------------
 
 aws elasticbeanstalk describe-applications
 
@@ -14,11 +20,39 @@ aws elasticbeanstalk describe-environments --application-name WebApplication1005
 
 aws elasticbeanstalk terminate-environment --environment-id e-cbdyj2n6r3
 
-
+;----------------------
 ; CloudWatch
+;----------------------
 
 aws logs describe-log-groups --max-items 100
 
 aws logs describe-log-groups --log-group-name-prefix /aws/lambda/function4
 
 aws logs delete-log-group --log-group-name /aws/lambda/my-function
+
+;----------------------
+; Lambda
+;----------------------
+
+aws lambda list-functions --max-items 100
+
+aws lambda delete-function --function-name my-lambda-function
+
+;----------------------
+; Role
+;----------------------
+
+aws iam list-roles --max-items 100
+
+aws iam delete-role --role-name your_role_name
+
+// aws iam delete-role --role-name dotnet80-AWSServerless2FunctionsGetGeneratedRole-FlrNmJyIPfVb
+
+;----------------------
+; Policies
+;----------------------
+
+aws iam list-attached-role-policies --role-name myFunctionName2-role-tp3e3izn
+
+// aws iam detach-role-policy --role-name your_role_name --policy-arn policy_arn
+
