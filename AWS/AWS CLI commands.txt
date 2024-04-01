@@ -15,3 +15,10 @@ aws elasticbeanstalk describe-environments --application-name WebApplication1005
 aws elasticbeanstalk terminate-environment --environment-id e-cbdyj2n6r3
 
 
+; CloudWatch
+
+aws logs describe-log-groups --max-items 100
+
+aws logs describe-log-groups --log-group-name-prefix /aws/lambda/function4
+
+aws logs delete-log-group --log-group-name /aws/lambda/my-function
