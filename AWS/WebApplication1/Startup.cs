@@ -35,7 +35,7 @@ namespace WebApplication1
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             var logger = loggerFactory.CreateLogger<Program>();
-            logger.LogInformation($"New instanct started");
+            logger.LogInformation($"New instance started");
 
             if (env.IsDevelopment())
             {
