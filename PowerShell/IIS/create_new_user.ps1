@@ -1,3 +1,5 @@
+# Usage sample: create_new_user.ps1 IUSR_1CLICK.LV SuperSecretPassword
+
 param (
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]

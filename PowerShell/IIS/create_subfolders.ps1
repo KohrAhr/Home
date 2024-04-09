@@ -1,3 +1,5 @@
+# Usage sample: create_subfolders.ps1 C:\Web\1click.lv\
+
 param (
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]

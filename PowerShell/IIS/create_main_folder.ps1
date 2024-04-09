@@ -1,3 +1,5 @@
+# Usage sample: create_main_folder.ps1 1CLICK.LV C:\Web
+
 param (
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]

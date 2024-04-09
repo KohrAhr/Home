@@ -1,3 +1,5 @@
+# Usage sample: disable_inheritance.ps1 C:\Web\1click.lv\
+
 param (
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
