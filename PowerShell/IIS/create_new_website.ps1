@@ -1,3 +1,5 @@
+# Usage sample: create_new_website.ps1 C:\Web 1CLICK.LV IUSR_1CLICK.LV SuperSecretPassword
+
 param (
     [Parameter(Mandatory = $true)]
     [ValidateNotNullOrEmpty()]
