@@ -56,3 +56,9 @@ aws iam list-attached-role-policies --role-name myFunctionName2-role-tp3e3izn
 
 // aws iam detach-role-policy --role-name your_role_name --policy-arn policy_arn
 
+;----------------------
+; Simple Email Service
+;----------------------
+
+aws ses send-email from XXXX@DOMAIN.LV --destination "ToAddresses=XXX@DOMAIN.LV" --message "Subject={Data=Test email from AWS},Body={Text={Data=This is a test email sent using Amazon SES.}}"
+
